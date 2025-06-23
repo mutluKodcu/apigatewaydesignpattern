@@ -2,6 +2,7 @@ package com.uyg2.dmtbkts.apigateway.filter;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -10,10 +11,13 @@ import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 
+import java.nio.charset.StandardCharsets;
+
 @Component
 public class JwtAuthenticationFilter implements WebFilter {
 
-    private static final String SECRET_KEY = "mysecretkey123456"; // Burası gizli tutulmalı, örnek için sabit
+    @Value("${jwt.secret}")
+    private String SECRET_KEY;
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
@@ -29,16 +33,18 @@ public class JwtAuthenticationFilter implements WebFilter {
 
         try {
             Claims claims = Jwts.parserBuilder()
-                    .setSigningKey(SECRET_KEY.getBytes())
+                    .setSigningKey(SECRET_KEY.getBytes(StandardCharsets.UTF_8))
                     .build()
                     .parseClaimsJws(token)
                     .getBody();
 
             // İstersen claims'den kullanıcı bilgilerini çekebilirsin
+            // Örnek: String username = claims.getSubject();
 
             return chain.filter(exchange);
 
         } catch (Exception e) {
+            // Hata loglanabilir
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
             return exchange.getResponse().setComplete();
         }
