@@ -1,0 +1,71 @@
+apigatewaydesignpattern/
+│
+├── backend/
+│   ├── authservice/
+│   │   ├── src/
+│   │   │   └── main/
+│   │   │       ├── java/
+│   │   │       │   └── com/
+│   │   │       │       └── uyg2/
+│   │   │       │           └── dmtbkt/
+│   │   │       │               └── apigatewaydesignpattern/
+│   │   │       │                   └── authservice/
+│   │   │       │                       ├── controller/
+│   │   │       │                       │   └── AuthController.java
+│   │   │       │                       ├── service/
+│   │   │       │                       │   └── AuthService.java
+│   │   │       │                       └── security/
+│   │   │       │                           └── JwtUtil.java
+│   │   │       └── resources/
+│   │   │           └── application.properties
+│   │   ├── Dockerfile
+│   │   └── pom.xml
+│   │
+│   ├── userservice/
+│   │   ├── src/
+│   │   │   └── main/
+│   │   │       ├── java/
+│   │   │       │   └── com/
+│   │   │       │       └── uyg2/
+│   │   │       │           └── dmtbkt/
+│   │   │       │               └── apigatewaydesignpattern/
+│   │   │       │                   └── userservice/
+│   │   │       │                       ├── controller/
+│   │   │       │                       │   └── UserController.java
+│   │   │       │                       ├── entity/
+│   │   │       │                       │   └── User.java
+│   │   │       │                       ├── repository/
+│   │   │       │                       │   └── UserRepository.java
+│   │   │       │                       ├── security/
+│   │   │       │                       │   └── JwtAuthenticationFilter.java
+│   │   │       │                       └── exception/
+│   │   │       │                           └── GlobalExceptionHandler.java
+│   │   │       └── resources/
+│   │   │           └── application.properties
+│   │   ├── Dockerfile
+│   │   └── pom.xml
+│   │
+│   └── apigateway/
+│       ├── src/
+│       │   └── main/
+│       │       ├── java/
+│       │       │   └── com/
+│       │       │       └── uyg2/
+│       │       │           └── dmtbkt/
+│       │       │               └── apigatewaydesignpattern/
+│       │       │                   └── apigateway/
+│       │       │                       ├── config/
+│       │       │                       │   └── GatewayConfig.java
+│       │       │                       └── security/
+│       │       │                           └── JwtAuthenticationFilter.java
+│       │       └── resources/
+│       │           └── application.yml
+│       ├── Dockerfile
+│       └── pom.xml
+│
+├── nginx/
+│   ├── nginx.conf
+│   └── logs/
+│
+├── docker-compose.yml
+└── README.md

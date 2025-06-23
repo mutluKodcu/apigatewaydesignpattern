@@ -1,0 +1,25 @@
+# backend/authservice/src/main/resources/application.yml
+
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/authdb
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    root: INFO
+    com.uyg2.dmtbkt: DEBUG
+
+jwt:
+  secret: dmt11128  # JWT token'ı imzalamak için kullanılan sabit secret (gerçek projelerde .env'den alınmalı)
