@@ -79,7 +79,7 @@ Her servisin kendi `application.yml` dosyası bulunmaktadır:
 ## ✨ Geliştirici
 
 **Demet Bektaş**  
-🔗 [LinkedIn](https://linkedin.com/in/mutlukodcu)  
+🔗 [LinkedIn](https://www.linkedin.com/in/demetbekta%C5%9F/)  
 ✍️ [Medium Blog](https://medium.com/@mutlukodcu)
 
 ---
